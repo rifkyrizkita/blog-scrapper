@@ -1,7 +1,7 @@
-import { prisma } from '@/db'
-import { openrouter } from '@/lib/openRouter'
 import { createFileRoute } from '@tanstack/react-router'
 import { streamText } from 'ai'
+import { prisma } from '@/db'
+import { openrouter } from '@/lib/openRouter'
 
 export const Route = createFileRoute('/api/ai/summary')({
   server: {

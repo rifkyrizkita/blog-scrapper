@@ -3,11 +3,14 @@
 import {
   Folder,
   Forward,
+  
   MoreHorizontal,
-  Trash2,
-  type LucideIcon,
+  Trash2
 } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import type {LucideIcon} from 'lucide-react';
 
+import type { NavPrimaryProps } from '@/lib/types'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,8 +28,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
-import { Link } from '@tanstack/react-router'
-import { NavPrimaryProps } from '@/lib/types'
 
 export function NavPrimary({ items }: NavPrimaryProps) {
   const { isMobile } = useSidebar()

@@ -1,3 +1,4 @@
+import { Outlet, createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import {
   SidebarInset,
@@ -6,7 +7,6 @@ import {
 } from '@/components/ui/sidebar'
 import { AppSidebar } from '@/components/web/app-sidebar'
 import { getSessionFn } from '@/data/session'
-import { createFileRoute, Outlet } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/dashboard')({
   component: RouteComponent,

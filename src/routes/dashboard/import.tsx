@@ -1,3 +1,11 @@
+import { useForm } from '@tanstack/react-form'
+import { createFileRoute } from '@tanstack/react-router'
+import { Globe, LinkIcon, Loader2 } from 'lucide-react'
+import { useState, useTransition } from 'react'
+import { toast } from 'sonner'
+import type { SearchResultWeb } from '@mendable/firecrawl-js'
+import type {
+  BulkScapeProgress} from '@/data/items';
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -17,19 +25,12 @@ import { Input } from '@/components/ui/input'
 import { Progress } from '@/components/ui/progress'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
-  BulkScapeProgress,
   bulkScrapeUrlsFn,
   mapUrlFn,
   scrapeUrlFn,
 } from '@/data/items'
 import { bulkImportSchema, importSchema } from '@/schemas/import'
-import { SearchResultWeb } from '@mendable/firecrawl-js'
 
-import { useForm } from '@tanstack/react-form'
-import { createFileRoute } from '@tanstack/react-router'
-import { Globe, LinkIcon, Loader2 } from 'lucide-react'
-import { useState, useTransition } from 'react'
-import { toast } from 'sonner'
 
 export const Route = createFileRoute('/dashboard/import')({
   component: RouteComponent,
@@ -40,7 +41,7 @@ function RouteComponent() {
   const [bulkIsPending, startBulkTransition] = useTransition()
   const [progress, setProgress] = useState<BulkScapeProgress | null>(null)
 
-  //bulk import state
+  // bulk import state
   const [discoveredLinks, setDiscoveredLinks] = useState<
     Array<SearchResultWeb>
   >([])

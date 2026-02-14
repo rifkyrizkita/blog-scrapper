@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router'
+import { toast } from 'sonner'
 import { Button, buttonVariants } from '../ui/button'
 import { ThemeToggle } from './theme-toggle'
 import { authClient } from '@/lib/auth-client'
-import { toast } from 'sonner'
 
 export function Navbar() {
   const { data: session, isPending } = authClient.useSession()
