@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "npm install && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "lint": "eslint",
@@ -77,6 +77,6 @@
     "web-vitals": "^5.1.0"
   },
   "overrides": {
-    "@noble/ciphers": "^1.0.0"
+    "@noble/ciphers": "0.6.0"
   }
 }
