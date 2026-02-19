@@ -1,3 +1,7 @@
+import { Link, useNavigate } from '@tanstack/react-router'
+import { useForm } from '@tanstack/react-form'
+import { toast } from 'sonner'
+import { useTransition } from 'react'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -14,12 +18,8 @@ import {
   FieldLabel,
 } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { Link, useNavigate } from '@tanstack/react-router'
-import { useForm } from '@tanstack/react-form'
 import { signupSchema } from '@/schemas/auth'
 import { authClient } from '@/lib/auth-client'
-import { toast } from 'sonner'
-import { useTransition } from 'react'
 
 export function SignupForm() {
   const navigate = useNavigate()

@@ -2,6 +2,10 @@
 
 import { BookmarkIcon, Compass, Import } from 'lucide-react'
 
+import { Link, linkOptions } from '@tanstack/react-router'
+import { NavPrimary } from './nav-primary'
+import { NavUser } from './nav-user'
+import type { NavPrimaryProps, NavUserProps } from '@/lib/types'
 import {
   Sidebar,
   SidebarContent,
@@ -12,10 +16,6 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from '@/components/ui/sidebar'
-import { NavPrimary } from './nav-primary'
-import { NavUser } from './nav-user'
-import { Link, linkOptions } from '@tanstack/react-router'
-import { NavPrimaryProps, NavUserProps } from '@/lib/types'
 
 // This is sample data.
 

@@ -1,15 +1,4 @@
-import { MessageResponse } from '@/components/ai-elements/message'
-import { Badge } from '@/components/ui/badge'
-import { Button, buttonVariants } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import { getItemByIdFn, saveSummaryAndGenerateTagsFn } from '@/data/items'
-import { cn } from '@/lib/utils'
-import { createFileRoute, Link, useRouter } from '@tanstack/react-router'
+import { Link, createFileRoute, useRouter } from '@tanstack/react-router'
 import {
   ArrowLeft,
   Calendar,
@@ -23,6 +12,17 @@ import {
 import { useState } from 'react'
 import { useCompletion } from '@ai-sdk/react'
 import { toast } from 'sonner'
+import { MessageResponse } from '@/components/ai-elements/message'
+import { Badge } from '@/components/ui/badge'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible'
+import { getItemByIdFn, saveSummaryAndGenerateTagsFn } from '@/data/items'
+import { cn } from '@/lib/utils'
 
 export const Route = createFileRoute('/dashboard/items/$itemId')({
   component: RouteComponent,

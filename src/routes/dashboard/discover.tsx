@@ -1,3 +1,10 @@
+import { useForm } from '@tanstack/react-form'
+import { createFileRoute } from '@tanstack/react-router'
+import { Loader2, Search, Sparkles } from 'lucide-react'
+import { useState, useTransition } from 'react'
+import { toast } from 'sonner'
+import type { SearchResultWeb } from '@mendable/firecrawl-js'
+import type { BulkScapeProgress} from '@/data/items';
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -15,14 +22,8 @@ import {
 } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Progress } from '@/components/ui/progress'
-import { BulkScapeProgress, bulkScrapeUrlsFn, searchWebFn } from '@/data/items'
+import { bulkScrapeUrlsFn, searchWebFn } from '@/data/items'
 import { searchSchema } from '@/schemas/import'
-import { SearchResultWeb } from '@mendable/firecrawl-js'
-import { useForm } from '@tanstack/react-form'
-import { createFileRoute } from '@tanstack/react-router'
-import { Loader2, Search, Sparkles } from 'lucide-react'
-import { useState, useTransition } from 'react'
-import { toast } from 'sonner'
 
 export const Route = createFileRoute('/dashboard/discover')({
   component: RouteComponent,

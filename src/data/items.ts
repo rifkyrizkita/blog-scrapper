@@ -1,3 +1,8 @@
+import { createServerFn } from '@tanstack/react-start'
+import z from 'zod'
+import { notFound } from '@tanstack/react-router'
+import { generateText } from 'ai'
+import type { SearchResultWeb } from '@mendable/firecrawl-js'
 import { prisma } from '@/db'
 import { firecrawl } from '@/lib/firecrawl'
 import {
@@ -6,13 +11,8 @@ import {
   importSchema,
   searchSchema,
 } from '@/schemas/import'
-import { createServerFn } from '@tanstack/react-start'
-import z from 'zod'
 import { authFnMiddleware } from '@/middlewares/auth'
-import { notFound } from '@tanstack/react-router'
-import { generateText } from 'ai'
 import { openrouter } from '@/lib/openRouter'
-import { SearchResultWeb } from '@mendable/firecrawl-js'
 
 export const scrapeUrlFn = createServerFn({ method: 'POST' })
   .middleware([authFnMiddleware])
@@ -102,7 +102,7 @@ export const bulkScrapeUrlsFn = createServerFn({ method: 'POST' })
       urls: z.array(z.string().url()),
     }),
   )
-  .handler(async function* ({ data, context })  {
+  .handler(async function* ({ data, context }) {
     const total = data.urls.length
     for (let i = 0; i < data.urls.length; i++) {
       const url = data.urls[i]
@@ -114,7 +114,7 @@ export const bulkScrapeUrlsFn = createServerFn({ method: 'POST' })
         },
       })
 
-      let status:BulkScapeProgress['status'] = 'success'
+      let status: BulkScapeProgress['status'] = 'success'
 
       try {
         const result = await firecrawl.scrape(url, {
@@ -245,5 +245,5 @@ export const searchWebFn = createServerFn({ method: 'POST' })
       title: (item as SearchResultWeb).title,
       url: (item as SearchResultWeb).url,
       description: (item as SearchResultWeb).description,
-    })) as SearchResultWeb[]
+    })) as Array<SearchResultWeb>
   })

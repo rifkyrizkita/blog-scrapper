@@ -1,3 +1,8 @@
+import { Link, createFileRoute, useNavigate } from '@tanstack/react-router'
+import { Copy, Inbox } from 'lucide-react'
+import z from 'zod'
+import { zodValidator } from '@tanstack/zod-adapter'
+import { Suspense, use, useEffect, useState } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button, buttonVariants } from '@/components/ui/button'
 import {
@@ -17,11 +22,6 @@ import {
 import { getItemsFn } from '@/data/items'
 import { ItemStatus } from '@/generated/prisma/enums'
 import { copyToClipboard } from '@/lib/clipboard'
-import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
-import { Copy, Inbox } from 'lucide-react'
-import z from 'zod'
-import { zodValidator } from '@tanstack/zod-adapter'
-import { Suspense, use, useEffect, useState } from 'react'
 import {
   Empty,
   EmptyContent,
@@ -188,7 +188,9 @@ function ItemsList({
               {item.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 pt-2">
                   {item.tags.slice(0, 4).map((tag, index) => (
-                    <Badge variant="secondary" key={index}>{tag}</Badge>
+                    <Badge variant="secondary" key={index}>
+                      {tag}
+                    </Badge>
                   ))}
                 </div>
               )}
